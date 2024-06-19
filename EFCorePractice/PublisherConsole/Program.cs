@@ -189,7 +189,7 @@ void InsertMultipleAuthorsPassedIn(List<Author> listOfAuthors)
 void ExecuteDelete()
 {
     var deleteId = 9;
-    _context.Authors.Where(a => a.Id == deleteId).ExecuteDelete();
+    _context.Authors.Where(a => a.AuthorId == deleteId).ExecuteDelete();
     var startswith = "H";
     var count = _context.Authors.Where(a => a.LastName.StartsWith(startswith)).ExecuteDelete();
 }
