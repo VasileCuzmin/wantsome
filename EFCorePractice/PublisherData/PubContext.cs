@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using PublisherDomain;
 
 namespace PublisherData
@@ -11,7 +12,13 @@ namespace PublisherData
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             var connectionString = "Server=localhost;Database=PubDatabase;User Id=sa;Password=SQLServerPassword123;TrustServerCertificate=True";
-            optionsBuilder.UseSqlServer(connectionString);
+            optionsBuilder.UseSqlServer(connectionString)
+                .LogTo(Console.WriteLine
+                , new[]
+                {
+                    DbLoggerCategory.Database.Command.Name
+                }, LogLevel.Information)
+                .EnableSensitiveDataLogging();
         }
 
 
