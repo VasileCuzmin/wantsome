@@ -214,3 +214,32 @@ void ExecuteUpdate()
             a => a.LastName,
             a => a.LastName.Substring(0, 1).ToUpper() + a.LastName.Substring(1).ToLower()));
 }
+
+
+
+void InsertNewAuthorWithBook()
+{
+
+}
+
+void InsertNewAuthorWith2NewBooks()
+{
+
+}
+
+void AddNewBookToExistingAuthorInMemory()
+{
+
+}
+
+
+void EagerLoadBooksWithAuthors()
+{
+
+}
+
+void EagerLoadBooksThatWerePublishedSince2010WithAuthors()
+{
+
+}
+
