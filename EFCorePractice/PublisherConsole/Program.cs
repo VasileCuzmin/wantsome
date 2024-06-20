@@ -243,3 +243,15 @@ void EagerLoadBooksThatWerePublishedSince2010WithAuthors()
 
 }
 
+void Projections()
+{
+    var unknownTypes = _context.Authors
+        .Select(a => new
+        {
+            a.AuthorId,
+            Name = a.FirstName.First() + "" + a.LastName,
+            a.Books  //.Where(b => b.PublishDate.Year < 2000).Count()
+        })
+        .ToList();
+    var debugview = _context.ChangeTracker.DebugView.ShortView;
+}
