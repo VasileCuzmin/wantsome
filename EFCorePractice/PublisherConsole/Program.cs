@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PublisherData;
 using PublisherDomain;
+using PublisherDomain.Models;
 
 using PubContext _context = new();
 //context.Database.EnsureCreated();//created the DB on the fly if it does not exist

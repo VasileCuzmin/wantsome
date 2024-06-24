@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using PublisherDomain;
+using PublisherDomain.Models;
 
 namespace PublisherData
 {

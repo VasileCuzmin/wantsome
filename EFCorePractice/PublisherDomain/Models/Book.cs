@@ -1,4 +1,4 @@
-﻿namespace PublisherDomain
+﻿namespace PublisherDomain.Models
 {
     public class Book
     {
