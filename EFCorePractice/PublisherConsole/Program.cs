@@ -18,6 +18,9 @@ using PubContext _context = new();
 //SkípAndTakeAuthors();
 
 //SortAuthors();
+//LazyLoadBooksFromAnAuthor();
+
+//Projections();
 LazyLoadBooksFromAnAuthor();
 
 void AddAuthor()

@@ -20,7 +20,7 @@ namespace PublisherData
                 }, LogLevel.Information)
                 .EnableSensitiveDataLogging();
 
-            //optionsBuilder.UseLazyLoadingProxies();
+            optionsBuilder.UseLazyLoadingProxies();
         }
 
 
