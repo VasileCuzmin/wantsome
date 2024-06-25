@@ -19,6 +19,8 @@ namespace PublisherData
                     DbLoggerCategory.Database.Command.Name
                 }, LogLevel.Information)
                 .EnableSensitiveDataLogging();
+
+            //optionsBuilder.UseLazyLoadingProxies();
         }
 
 

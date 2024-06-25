@@ -18,6 +18,7 @@ using PubContext _context = new();
 //SkípAndTakeAuthors();
 
 //SortAuthors();
+LazyLoadBooksFromAnAuthor();
 
 void AddAuthor()
 {
@@ -202,7 +203,7 @@ void ExecuteUpdate()
     ////change price of books older than 10 years to $1.50
     var oldbookprice = 1.50m;
     _context.Books.Where(b => b.PublishDate < tenYearsAgo)
-        .ExecuteUpdate(setters => setters.SetProperty(b => b.BasePrice, oldbookprice));
+        .ExecuteUpdate(setters => setters.SetProperty(b => b.Price, oldbookprice));
 
     ////change all last names to lower case
     _context.Authors
@@ -255,4 +256,28 @@ void Projections()
         })
         .ToList();
     var debugview = _context.ChangeTracker.DebugView.ShortView;
+}
+
+
+void LazyLoadBooksFromAnAuthor()
+{
+    //requires lazy loading to be set up in your app
+    var author = _context.Authors.FirstOrDefault(a => a.LastName == "Lerman");
+    if (author != null)
+    {
+        foreach (var book in author.Books)
+        {
+            Console.WriteLine(book.Title);
+        }
+    }
+
+}
+
+//FilterUsingRelatedData();
+// Notice that Books are not loaded into memory !!
+void FilterUsingRelatedData()
+{
+    var recentAuthors = _context.Authors
+        .Where(a => a.Books.Any(b => b.PublishDate.Year >= 2015))
+        .ToList();
 }
